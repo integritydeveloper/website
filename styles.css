@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  --bloom-strength: 0.5;
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('assets/font/MinecraftRegular-Bmg3.otf') format('opentype');
+}
+
+
+body {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+  background-color: black;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('assets/background.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(6px);
+  transform: scale(1.03);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.integrityTitle {
+  font-family: 'Minecraft', sans-serif;
+  font-size: 55px;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 calc(2px * var(--bloom-strength)) #ffffff,
+    0 0 calc(6px * var(--bloom-strength)) rgba(255,255,255,0.9),
+    0 0 calc(12px * var(--bloom-strength)) rgba(255,255,255,0.6),
+    0 0 calc(24px * var(--bloom-strength)) rgba(255,255,255,0.25);
+  filter: drop-shadow(0 0 calc(3px * var(--bloom-strength)) rgba(255,255,255,0.85)) drop-shadow(0 0 calc(8px * var(--bloom-strength)) rgba(255,255,255,0.35));
+}
